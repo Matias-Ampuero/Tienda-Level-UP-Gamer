@@ -1,0 +1,246 @@
+/* Level-Up Gamer - Estilos Personalizados */
+
+/* Importar fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@400;700;900&display=swap');
+
+/* Variables de colores */
+:root {
+    --bg-primary: #000000;
+    --accent-blue: #1E90FF;
+    --accent-green: #39FF14;
+    --text-primary: #FFFFFF;
+    --text-secondary: #D3D3D3;
+    --font-main: 'Roboto', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+}
+
+/* Estilos generales */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Títulos con fuente Orbitron */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* Navbar personalizada */
+.navbar-custom {
+    background-color: var(--bg-primary) !important;
+    border-bottom: 2px solid var(--accent-blue);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    color: var(--accent-green) !important;
+}
+
+.nav-link {
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease;
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 8px;
+    margin: 0 0.25rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--accent-blue) !important;
+    background: rgba(30, 144, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    color: var(--bg-primary) !important;
+    font-weight: 600;
+}
+
+/* Botones personalizados */
+.btn-gamer {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    border: none;
+    color: var(--bg-primary);
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.btn-gamer:hover {
+    transform: translateY(-2px);
+    color: var(--bg-primary);
+}
+
+.btn-outline-gamer {
+    border: 2px solid var(--accent-blue);
+    color: var(--accent-blue);
+    background: transparent;
+}
+
+.btn-outline-gamer:hover {
+    background: var(--accent-blue);
+    color: var(--bg-primary);
+}
+
+/* Cards de productos */
+.product-card {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    border: 1px solid #333;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 144, 255, 0.3);
+    border-color: var(--accent-blue);
+}
+
+.product-card .card-body {
+    background: transparent;
+}
+
+.product-card .card-title {
+    color: var(--accent-green);
+    font-family: var(--font-heading);
+}
+
+.product-card .card-text {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.product-price {
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(135deg, var(--bg-primary), #1a1a1a);
+    padding: 100px 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Carrito de compras */
+.cart-badge {
+    background: var(--accent-green) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Footer */
+.footer-custom {
+    background: linear-gradient(135deg, #1a1a1a, var(--bg-primary));
+    border-top: 2px solid var(--accent-blue);
+}
+
+/* Categorías */
+.category-card .card-text {
+    color: var(--text-primary);
+}
+
+/* Formularios */
+.form-label {
+    color: var(--text-primary) !important;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-control {
+    background-color: #2d2d2d !important;
+    border: 1px solid #555 !important;
+    color: var(--text-primary) !important;
+    font-family: var(--font-main);
+}
+
+.form-control:focus {
+    background-color: #2d2d2d !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--text-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(30, 144, 255, 0.25) !important;
+}
+
+.form-text {
+    color: var(--accent-green) !important;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+}
+
+.form-check-label {
+    color: var(--text-primary) !important;
+    font-family: var(--font-main);
+}
+
+.card-title {
+    color: var(--accent-green) !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* Títulos de formularios */
+h2 {
+    color: #FFFFFF !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Títulos de secciones */
+.display-4, .display-5, .display-6 {
+    color: var(--text-primary) !important;
+    font-family: var(--font-heading);
+}
+
+/* Texto de enlaces y botones */
+.text-decoration-none {
+    color: var(--accent-blue) !important;
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+
+.text-decoration-none:hover {
+    color: var(--accent-green) !important;
+}
+
+/* Placeholder text */
+.form-control::placeholder {
+    color: #888 !important;
+    font-family: var(--font-main);
+}
+
+/* Botones de formulario */
+.btn-gamer {
+    font-family: var(--font-heading) !important;
+    font-weight: 600 !important;
+}
+
+/* Texto del footer */
+.text-secondary {
+    color: var(--text-secondary) !important;
+    font-family: var(--font-main);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
