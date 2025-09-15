@@ -241,9 +241,14 @@ function createProductCard(product) {
                     
                     <div class="mt-auto">
                         <div class="product-price mb-3">$${product.price.toLocaleString()}</div>
-                        <button class="btn btn-gamer w-100" onclick="addToCart('${product.id}', '${product.name}', ${product.price}, '${product.image}', '${product.category}')">
-                            <i class="bi bi-cart-plus me-2"></i>Agregar al Carrito
-                        </button>
+                        <div class="d-grid gap-2">
+                            <a href="detalle-producto.html?id=${product.id}" class="btn btn-outline-gamer btn-sm">
+                                <i class="bi bi-eye me-1"></i>Ver Detalle
+                            </a>
+                            <button class="btn btn-gamer btn-sm" onclick="addToCart('${product.id}', '${product.name}', ${product.price}, '${product.image}', '${product.category}')">
+                                <i class="bi bi-cart-plus me-1"></i>Añadir al Carrito
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
