@@ -13,7 +13,10 @@ const products = [
         manufacturer: 'Catan Studio',
         distributor: 'Asmodee Chile',
         origin: 'Alemania',
-        warranty: '2 años'
+        warranty: '2 años',
+        stock: 45,
+        sold: 23,
+        status: 'activo'
     },
     { 
         id: 'JM002', 
@@ -25,7 +28,10 @@ const products = [
         manufacturer: 'Hans im Glück',
         distributor: 'Asmodee Chile',
         origin: 'Alemania',
-        warranty: '2 años'
+        warranty: '2 años',
+        stock: 32,
+        sold: 18,
+        status: 'activo'
     },
     
     // Accesorios
@@ -39,7 +45,10 @@ const products = [
         manufacturer: 'Microsoft Corporation',
         distributor: 'Microsoft Chile',
         origin: 'China',
-        warranty: '1 año'
+        warranty: '1 año',
+        stock: 67,
+        sold: 89,
+        status: 'activo'
     },
     { 
         id: 'AC002', 
@@ -51,7 +60,10 @@ const products = [
         manufacturer: 'Kingston Technology',
         distributor: 'Kingston Chile',
         origin: 'Taiwán',
-        warranty: '2 años'
+        warranty: '2 años',
+        stock: 28,
+        sold: 45,
+        status: 'activo'
     },
     
     // Consolas
@@ -65,7 +77,10 @@ const products = [
         manufacturer: 'Sony Interactive Entertainment',
         distributor: 'Sony Chile',
         origin: 'Japón',
-        warranty: '1 año'
+        warranty: '1 año',
+        stock: 12,
+        sold: 156,
+        status: 'activo'
     },
     { 
         id: 'CO002', 
@@ -77,7 +92,10 @@ const products = [
         manufacturer: 'Microsoft Corporation',
         distributor: 'Microsoft Chile',
         origin: 'China',
-        warranty: '1 año'
+        warranty: '1 año',
+        stock: 8,
+        sold: 134,
+        status: 'activo'
     },
     { 
         id: 'CO003', 
@@ -89,7 +107,10 @@ const products = [
         manufacturer: 'Nintendo Co., Ltd.',
         distributor: 'Nintendo Chile',
         origin: 'Japón',
-        warranty: '1 año'
+        warranty: '1 año',
+        stock: 25,
+        sold: 98,
+        status: 'activo'
     },
     
     // Computadores Gamers
@@ -103,7 +124,10 @@ const products = [
         manufacturer: 'ASUS Computer International',
         distributor: 'ASUS Chile',
         origin: 'Taiwán',
-        warranty: '3 años'
+        warranty: '3 años',
+        stock: 5,
+        sold: 12,
+        status: 'activo'
     },
     
     // Sillas Gamers
@@ -117,7 +141,10 @@ const products = [
         manufacturer: 'Secretlab',
         distributor: 'Secretlab Chile',
         origin: 'Singapur',
-        warranty: '5 años'
+        warranty: '5 años',
+        stock: 18,
+        sold: 34,
+        status: 'activo'
     },
     
     // Mouse
@@ -131,7 +158,10 @@ const products = [
         manufacturer: 'Logitech International',
         distributor: 'Logitech Chile',
         origin: 'Suiza',
-        warranty: '2 años'
+        warranty: '2 años',
+        stock: 42,
+        sold: 67,
+        status: 'activo'
     },
     
     // Mousepad
@@ -145,7 +175,10 @@ const products = [
         manufacturer: 'Razer Inc.',
         distributor: 'Razer Chile',
         origin: 'Singapur',
-        warranty: '2 años'
+        warranty: '2 años',
+        stock: 35,
+        sold: 28,
+        status: 'activo'
     },
     
     // Poleras Personalizadas
@@ -159,7 +192,10 @@ const products = [
         manufacturer: 'Level-Up Gamer',
         distributor: 'Level-Up Gamer',
         origin: 'Chile',
-        warranty: '6 meses'
+        warranty: '6 meses',
+        stock: 78,
+        sold: 45,
+        status: 'activo'
     },
     
     // Polerones Gamers Personalizados
@@ -173,11 +209,17 @@ const products = [
         manufacturer: 'Level-Up Gamer',
         distributor: 'Level-Up Gamer',
         origin: 'Chile',
-        warranty: '6 meses'
+        warranty: '6 meses',
+        stock: 52,
+        sold: 38,
+        status: 'activo'
     }
 ];
 
 let filteredProducts = [...products];
+
+// Hacer el array de productos global para el admin
+window.products = products;
 
 // Cargar productos al iniciar la página
 document.addEventListener('DOMContentLoaded', function() {
@@ -197,6 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Mostrar productos
 function displayProducts() {
     const productsGrid = document.getElementById('productsGrid');
+    if (!productsGrid) return; // Si no existe el elemento, salir
     productsGrid.innerHTML = '';
     
     filteredProducts.forEach(product => {
@@ -214,6 +257,24 @@ function createProductCard(product) {
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">${product.name}</h5>
                     <p class="card-text">${product.description}</p>
+                    
+                    <!-- Información de Stock y Ventas -->
+                    <div class="product-stock mb-3" style="background: #1a1a1a; padding: 10px; border-radius: 8px; border-left: 3px solid var(--accent-green);">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <small class="text-white d-block" style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; opacity: 0.8;">Stock</small>
+                                <small class="text-success" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 600;">${product.stock}</small>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-white d-block" style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; opacity: 0.8;">Vendidos</small>
+                                <small class="text-primary" style="font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 600;">${product.sold}</small>
+                            </div>
+                            <div class="col-4">
+                                <small class="text-white d-block" style="font-family: 'Orbitron', sans-serif; font-size: 0.75rem; opacity: 0.8;">Estado</small>
+                                <small class="text-${product.status === 'activo' ? 'success' : 'danger'}" style="font-family: 'Orbitron', sans-serif; font-size: 0.8rem; font-weight: 500;">${product.status.charAt(0).toUpperCase() + product.status.slice(1)}</small>
+                            </div>
+                        </div>
+                    </div>
                     
                     <!-- Información de Origen -->
                     <div class="product-origin mb-3" style="background: #1a1a1a; padding: 10px; border-radius: 8px; border-left: 3px solid var(--accent-blue);">

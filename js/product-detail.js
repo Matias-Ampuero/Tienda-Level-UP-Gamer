@@ -42,13 +42,21 @@ function loadProductDetail(productId) {
     // Cargar información del producto
     document.getElementById('product-image').src = `../img/${product.image}`;
     document.getElementById('product-name').textContent = product.name;
-    document.getElementById('product-category').textContent = product.category;
     document.getElementById('product-price').textContent = `$${product.price.toLocaleString('es-CL')}`;
     document.getElementById('product-description').textContent = product.description;
-    document.getElementById('product-manufacturer').textContent = product.manufacturer;
-    document.getElementById('product-distributor').textContent = product.distributor;
-    document.getElementById('product-origin').textContent = product.origin;
-    document.getElementById('product-warranty').textContent = product.warranty;
+    
+    // Solo actualizar elementos que existen
+    const manufacturerEl = document.getElementById('product-manufacturer');
+    if (manufacturerEl) manufacturerEl.textContent = product.manufacturer;
+    
+    const distributorEl = document.getElementById('product-distributor');
+    if (distributorEl) distributorEl.textContent = product.distributor;
+    
+    const originEl = document.getElementById('product-origin');
+    if (originEl) originEl.textContent = product.origin;
+    
+    const warrantyEl = document.getElementById('product-warranty');
+    if (warrantyEl) warrantyEl.textContent = product.warranty;
     
     // Actualizar breadcrumb
     document.getElementById('breadcrumb-category').textContent = product.category;
@@ -74,7 +82,7 @@ function loadRelatedProducts(currentProductId) {
     const currentProduct = products.find(p => p.id === currentProductId);
     const relatedProducts = products.filter(p => 
         p.category === currentProduct.category && p.id !== currentProductId
-    ).slice(0, 4); // Máximo 4 productos relacionados
+    ).slice(0, 5); // Exactamente 5 productos relacionados como en el mockup
     
     const relatedContainer = document.getElementById('related-products');
     
@@ -88,18 +96,10 @@ function loadRelatedProducts(currentProductId) {
     }
     
     relatedContainer.innerHTML = relatedProducts.map(product => `
-        <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card product-card h-100">
-                <img src="../img/${product.image}" class="card-img-top" alt="${product.name}" style="height: 200px; object-fit: cover;">
-                <div class="card-body d-flex flex-column">
-                    <h6 class="card-title text-white">${product.name}</h6>
-                    <p class="card-text text-muted small flex-grow-1">${product.description.substring(0, 80)}...</p>
-                    <div class="mt-auto">
-                        <p class="product-price mb-2">$${product.price.toLocaleString('es-CL')}</p>
-                        <a href="detalle-producto.html?id=${product.id}" class="btn btn-gamer btn-sm w-100">
-                            Ver Detalle
-                        </a>
-                    </div>
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
+            <div class="related-product-card">
+                <div class="related-product-image">
+                    <i class="bi bi-image"></i>
                 </div>
             </div>
         </div>

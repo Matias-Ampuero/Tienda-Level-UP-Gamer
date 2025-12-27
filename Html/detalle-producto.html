@@ -86,19 +86,22 @@
                 <div class="row">
                     <!-- Product Image -->
                     <div class="col-lg-6">
-                        <div class="text-center">
-                            <img id="product-image" src="" alt="Imagen del Producto" class="img-fluid rounded-3 shadow-lg mb-4" style="max-height: 500px; object-fit: cover;">
+                        <div class="product-image-container">
+                            <!-- Main Product Image -->
+                            <div class="main-image-container mb-3">
+                                <img id="product-image" src="" alt="Imagen del Producto" class="img-fluid main-product-image">
+                            </div>
                             
                             <!-- Thumbnail Images -->
-                            <div class="row mt-3">
+                            <div class="row g-2">
                                 <div class="col-4">
-                                    <img id="thumb-1" src="" alt="Vista 1" class="img-fluid rounded shadow-sm" style="height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage(this.src)">
+                                    <img id="thumb-1" src="" alt="Vista 1" class="img-fluid thumbnail-image" onclick="changeMainImage(this.src)">
                                 </div>
                                 <div class="col-4">
-                                    <img id="thumb-2" src="" alt="Vista 2" class="img-fluid rounded shadow-sm" style="height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage(this.src)">
+                                    <img id="thumb-2" src="" alt="Vista 2" class="img-fluid thumbnail-image" onclick="changeMainImage(this.src)">
                                 </div>
                                 <div class="col-4">
-                                    <img id="thumb-3" src="" alt="Vista 3" class="img-fluid rounded shadow-sm" style="height: 80px; object-fit: cover; cursor: pointer;" onclick="changeMainImage(this.src)">
+                                    <img id="thumb-3" src="" alt="Vista 3" class="img-fluid thumbnail-image" onclick="changeMainImage(this.src)">
                                 </div>
                             </div>
                         </div>
@@ -106,94 +109,46 @@
 
                     <!-- Product Info -->
                     <div class="col-lg-6">
-                        <h1 id="product-name" class="display-5 mb-3 text-white"></h1>
-                        <p class="lead text-muted mb-3" id="product-category"></p>
-                        <p class="product-price display-4 mb-4" id="product-price"></p>
-                        
-                        <div class="mb-4">
-                            <h4 class="text-white mb-3">Descripción</h4>
-                            <p class="text-white-50" id="product-description"></p>
-                        </div>
-
-                        <!-- Product Origin Info -->
-                        <div class="mb-4">
-                            <h4 class="text-white mb-3">
-                                <i class="bi bi-info-circle me-2"></i>Información de Origen
-                            </h4>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-building text-primary me-2"></i>
-                                        <div>
-                                            <small class="text-white opacity-75 d-block">Fabricante</small>
-                                            <span id="product-manufacturer" class="text-white font-weight-500"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-truck text-success me-2"></i>
-                                        <div>
-                                            <small class="text-white opacity-75 d-block">Distribuidor</small>
-                                            <span id="product-distributor" class="text-white font-weight-500"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-geo-alt text-warning me-2"></i>
-                                        <div>
-                                            <small class="text-white opacity-75 d-block">Origen</small>
-                                            <span id="product-origin" class="text-white font-weight-500"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex align-items-center">
-                                        <i class="bi bi-shield-check text-info me-2"></i>
-                                        <div>
-                                            <small class="text-white opacity-75 d-block">Garantía</small>
-                                            <span id="product-warranty" class="text-white font-weight-500"></span>
-                                        </div>
-                                    </div>
+                        <div class="product-details">
+                            <!-- Product Title and Price -->
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <h1 id="product-name" class="product-title">Nombre Producto</h1>
+                                <span id="product-price" class="product-price-large">$0</span>
+                            </div>
+                            
+                            <!-- Product Description -->
+                            <div class="product-description mb-4">
+                                <p id="product-description" class="text-white-50">
+                                    Las manzanas son una fruta deliciosa y versátil que se puede disfrutar de muchas maneras. 
+                                    Son ricas en fibra, vitaminas y antioxidantes, lo que las convierte en una excelente opción 
+                                    para una dieta saludable. Perfectas para comer frescas, en ensaladas, postres o como ingrediente 
+                                    en diversas recetas culinarias.
+                                </p>
+                            </div>
+                            
+                            <!-- Quantity Selector -->
+                            <div class="quantity-section mb-4">
+                                <label for="quantity" class="form-label text-white mb-2">Cantidad</label>
+                                <div class="quantity-selector">
+                                    <select class="form-select quantity-dropdown" id="quantity">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Add to Cart Section -->
-                        <div class="card product-card">
-                            <div class="card-body">
-                                <h5 class="card-title text-white mb-3">
-                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
-                                </h5>
-                                
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-4">
-                                        <label for="quantity" class="form-label text-white">Cantidad:</label>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity()">
-                                                <i class="bi bi-dash"></i>
-                                            </button>
-                                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1" max="10">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity()">
-                                                <i class="bi bi-plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <button id="add-to-cart-btn" class="btn btn-gamer btn-lg w-100">
-                                    <i class="bi bi-cart-plus me-2"></i>Añadir al Carrito
-                                </button>
-                                
-                                <div class="mt-3 text-center">
-                                    <small class="text-muted">
-                                        <i class="bi bi-truck me-1"></i>Envío gratis en compras sobre $50.000
-                                    </small>
-                                </div>
-                            </div>
+                            
+                            <!-- Add to Cart Button -->
+                            <button id="add-to-cart-btn" class="btn btn-primary btn-lg w-100 add-to-cart-btn">
+                                <i class="bi bi-cart-plus me-2"></i>Añadir al carrito
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -204,9 +159,9 @@
         <section class="py-5 bg-dark">
             <div class="container">
                 <h2 class="text-center mb-5 text-white">
-                    <i class="bi bi-grid-3x3-gap me-2"></i>Productos Relacionados
+                    <i class="bi bi-grid-3x3-gap me-2"></i>Related Products
                 </h2>
-                <div class="row" id="related-products">
+                <div class="row justify-content-center" id="related-products">
                     <!-- Related products will be loaded here by JavaScript -->
                 </div>
             </div>
@@ -252,8 +207,8 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="../js/cart.js"></script>
     <script src="../js/products.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/product-detail.js"></script>
 </body>
 </html>
